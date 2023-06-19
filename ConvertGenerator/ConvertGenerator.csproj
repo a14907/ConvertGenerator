@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://gitee.com/di-ao/convert-generator</PackageProjectUrl>
+		<RepositoryUrl>https://gitee.com/di-ao/convert-generator</RepositoryUrl>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+		<Version>1.0.1.5</Version>
+		<PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+		<Description>利用dotnet core的代码生成的特性，自动生成类型转换的代码。类似于AutoMaper。</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Templates\ConvertFromTemplate.txt" />
+		<None Remove="Templates\ConvertToTemplate.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Templates\ConvertFromTemplate.txt" />
+		<EmbeddedResource Include="Templates\ConvertToTemplate.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.6.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(OutputPath)\ConvertGenerator.Attriutes.dll" Pack="true" PackagePath="lib/netstandard2.0" Visible="true" />
+		<None Include="..\README_nuget.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\ConvertGenerator.Attriutes\ConvertGenerator.Attriutes.csproj" PrivateAssets="All" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://gitee.com/di-ao/convert-generator</PackageProjectUrl>
+    <Version>$(VersionPrefix)</Version>
+    <RepositoryUrl>https://gitee.com/di-ao/convert-generator</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
